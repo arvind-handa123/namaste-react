@@ -1,18 +1,11 @@
-/*
-<div id="parent">
-    <div id="child">
-        <h1> I am H1 Tag </h1>
-    </div>
-</div>
-
-
-*/
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
 const nestedElement = React.createElement("div", {id:"parent"},
     [
         React.createElement("div", {id:"child-1"},
             [
-                React.createElement("h1", {}, "I am H1 Tag"), 
+                React.createElement("h1", {}, "Hello World Namaste React"), 
                 React.createElement("h2", {}, "I am H2 Tag")
             ]
         ),
