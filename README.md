@@ -158,3 +158,29 @@
 - JSX is ReactElement at the end of day
 - React.createElement is an plain JS object at the end of day
 - Here we can say every thing is JavaScript at the end of day
+
+# CSS Style
+
+# Inline css as below
+
+- Inline style is not preffered way
+- const resturantCardStyle = {
+  backgroundColor: "#f0f0f0",
+  };
+- <div className="res-card" style={resturantCardStyle}> </div>
+- <div className="res-card" style={{backgroundColor: "#f0f0f0"}}> </div>
+
+# External CSS same as HTML
+
+# Props
+
+- Props is short form of properties
+- Props is something usefull information which we can pass to componet
+- We can pass dynamic data to component using props
+- Props is at the end of day normal argument to the function
+- Passing argument or props to a function is just like passing argument to a function
+- React collect all props and wrape into Object
+- Props is nothing but JavaScript obejct
+- When you want to pass some dynamic data to component then pass as props
+
+# Config Driven UI
