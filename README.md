@@ -184,3 +184,13 @@
 - When you want to pass some dynamic data to component then pass as props
 
 # Config Driven UI
+
+# why .map() functiona required key
+
+- Keys are significant in React because they aid in determining whether items in a
+  list have been changed, updated, or removed. This process helps React to optimize the rendering by recycling existing DOM elements
+- React don't recommended to use OOTB index value of map function
+- if you have unique id attribute in your your data always use that, if don't have in that
+  case use index attribute value of map(element, index ) function
+- Not using any keys is not acceptable, always use the key attribute of map()
+- unique key is best, if your data don't have unique kay use index attribute value
