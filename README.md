@@ -194,3 +194,104 @@
   case use index attribute value of map(element, index ) function
 - Not using any keys is not acceptable, always use the key attribute of map()
 - unique key is best, if your data don't have unique kay use index attribute value
+
+# React Project File Structure
+
+- https://legacy.reactjs.org/docs/faq-structure.html
+
+# Some Coding convetsion
+
+- Component name always start with Capital Letter
+- Always export component before you import anywhere in any file
+- Always write all contant in capital latters separated by undesrcore when multiword
+- It is not required to write file extention ".js" while we import component
+  inside another file
+- For component file you can user either ".js" or ".jsx" as file extention
+- There is no any significant difference about both
+- React by default treat imported file as ".js", hence below both import is valid.
+- import Header from "./components/Header"; OR
+- import Header from "./components/Header.js"
+- Never keep any hard coded data into your component file.
+
+# Two types of export and import
+
+- Default export - eport default Header
+
+  - use this only when you want to export only single things from a file
+  - Inside one file we can have only one export default <> statement.
+  - If you write multiple export default it will give error.
+  - Ex. export default Header
+
+- Named export
+
+  - Use this apporach when we need to export multiple things from single file.
+  - Ex. export const CDN_URL = "cdn url";
+  - Ex. export const LOGO_URL = "logo url";
+
+- Default Import
+
+  - for default import we don't need {} arround the name.
+  - you can use default import like below
+  - import Header from "./components/Header";
+
+- Named Import
+
+  - For named import we have to user {} arround the name like blelow
+  - import { CDN_URL } from "../utils/constant";
+
+- Default export import example
+
+  - export default Component;
+  - import Component from "path";
+
+- Named export import example
+
+  - export const Component/variable
+  - import {Component/varibale} from "path";
+
+# React Hooks
+
+- It is nothing but plain JS utility function which is given to us by react
+- Below is two very import hooks
+
+- useState() - To create super powerfull state variable in React
+- state variable keeps UI in synch with data layer
+- Whenever a state variable value is update react will re-render the component
+- React will re-render component in superfast as well as in optimal way
+- React is very good in DOM Manipulation and re-rendering of component
+- useEffect()
+
+# Virtual DOM
+
+- This is representation of actual DOM
+- This is nuthing but a normal JS variable (It is object)
+- In React 16 new algorithm is came out to update the DOM and that algo is know as
+  React Fiber
+- When something is change in UI it call Reconciliation
+- React Fiber is a new way of finding difference and updating the DOM
+- Vistual DOM is represetion of actual HTML DOM as form of JS Object.
+
+# React Fiber Alog more details
+
+- https://github.com/acdlite/react-fiber-architecture
+
+# Namaste Food Project Outline
+
+- Header
+- - Logo
+- - Nav Items
+-
+- Body
+- - Serch
+- - Resturant Container
+-     - Resturant Card
+-        - Image
+-        - Name of Resturant
+-        - cuisine
+-        - Star Reting
+-        - Estimated time of delivery
+- - Footer
+-     - Copyright
+-     - Links
+-     - Address
+-     - Contact

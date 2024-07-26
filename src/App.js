@@ -1,50 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-/*
- * Header
- *   - Logo
- *   - Nav Items
- *
- * Body
- *   - Serch
- *   - Resturant Container
- *     - Resturant Card
- *        - Image
- *        - Name of Resturant
- *        - cuisine
- *        - Star Reting
- *        - Estimated time of delivery
- *
- *
- * Footer
- *   - Copyright
- *   - Links
- *   - Address
- *   - Contact
- */
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
+import Header from "./components/Header";
+import Body from "./components/Body";
 const resturantList = [
   {
     info: {
@@ -1691,19 +1648,6 @@ const resturantList = [
     },
   },
 ];
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search-container">Search Component</div>
-      <div className="res-container">
-        {resturantList.map((resturant) => (
-          <ResturantCard key={resturant.info.id} resturantData={resturant} />
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const resturantCardStyle = {
   backgroundColor: "#f0f0f0",
