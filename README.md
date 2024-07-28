@@ -254,12 +254,23 @@
 - It is nothing but plain JS utility function which is given to us by react
 - Below is two very import hooks
 
-- useState() - To create super powerfull state variable in React
+# useState() - To create super powerfull state variable in React
+
 - state variable keeps UI in synch with data layer
 - Whenever a state variable value is update react will re-render the component
 - React will re-render component in superfast as well as in optimal way
 - React is very good in DOM Manipulation and re-rendering of component
-- useEffect()
+
+# useEffect()
+
+- useEffect hooks callback function is called after component render.
+- If you have to do something after the component render then you should write
+  that code inside useEffect.
+- As soon as the render cycle of functiona component is complete then it will
+  called the callback function which we have write inside useEffect() hooks
+- useEffect needs to argument 1. callback function 2. Dependency Array
+- When value of state variable is changed by calling setXX() method it will
+  trigger reReconciliation algo and then perform re-render of the component UI.
 
 # Virtual DOM
 
@@ -271,9 +282,20 @@
 - React Fiber is a new way of finding difference and updating the DOM
 - Vistual DOM is represetion of actual HTML DOM as form of JS Object.
 
+# Why react is faster
+
+- Because it used Virtual DOM concept
+- It has diff algorithm which is veey efficiently, It can do veri efficient
+  DOM maniputaion
+- Diff algo find the diff and update the DOM.
+
 # React Fiber Alog more details
 
 - https://github.com/acdlite/react-fiber-architecture
+
+# Shimmer UI
+
+- https://medium.com/lattice-what-is/shimmer-ui-a-better-way-to-show-loading-states-aa1f4e563d17
 
 # Namaste Food Project Outline
 
