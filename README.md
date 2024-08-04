@@ -212,6 +212,12 @@
 - import Header from "./components/Header"; OR
 - import Header from "./components/Header.js"
 - Never keep any hard coded data into your component file.
+- Never create useState variable inside condition like if else otherwise it will create
+  inconsistency in your program.
+- Never create useState variable inside for loop.
+- Don't create useState variable inside pure JS function also.
+- Alway write useState statment on genining os component code. bcz JS is
+  single threaded synchronuous language so it will run your code line by line.
 
 # Two types of export and import
 
@@ -264,11 +270,21 @@
 # useEffect()
 
 - useEffect hooks callback function is called after component render.
+- every time when componet is render after render cycle useEffect will called.
 - If you have to do something after the component render then you should write
   that code inside useEffect.
 - As soon as the render cycle of functiona component is complete then it will
   called the callback function which we have write inside useEffect() hooks
-- useEffect needs to argument 1. callback function 2. Dependency Array
+- useEffect needs two argument 1. callback function 2. Dependency Array second arg is
+  not mandatory.
+- If second argument is not pass then useEffect will be called for every
+  rendering of that component where useEffect is written.
+- if second argrument is pass as [] empty depenecy array then useEffect will be called
+  only one time during initial render.
+- The default behaviour of useEffect is to called after every render but when we
+  pass second argument it will called only one time.
+- If we pass depedency array value like [btnName] then useEffect will be
+  called everytime when "btnName" value is updated.
 - When value of state variable is changed by calling setXX() method it will
   trigger reReconciliation algo and then perform re-render of the component UI.
 
@@ -296,6 +312,41 @@
 # Shimmer UI
 
 - https://medium.com/lattice-what-is/shimmer-ui-a-better-way-to-show-loading-states-aa1f4e563d17
+
+# React Router
+
+- npm install react-router-dom
+- import { createBrowserRouter, RouterProvider } from "react-router-dom";
+- createBrowserRouter will create routing configuration for us.
+- RouterProvide will actully provide routing configuration to our application
+- Using useRouteeError hooks we can get more details about the error.
+- Outlet : This outlet will be filled with the children according to the path
+  on what page we are currently. whenever i am on the path "/contact" then
+  <Contact /> component will be filled at <Outlet /> placeholder. So Outlet
+  place holder will be replace by actual componet according to current path.
+- Link component is a super poer given by react-router-dom by wusing that We
+  can navigate to another page without reloading whole page.
+- If you use tradition <a> anchor tag it will reload whole page. so don't use it.
+- <a> tag refresh whole page while <Link> only refresh/replace the component according
+  to current page url that is why React is know as single page application.
+- Behind the scene <Link> component is using <a> acnhor tag only. <Link> is a
+  wrapper over <a> and react router dom keep track that particular url is a link
+  and for that we don't have to refresh the page. it is special type of link.
+- More info : https://reactrouter.com/en/main/routers/create-browser-router
+
+# 2 types of Routing in web app
+
+- Cline Side Routing -we are not making any network call bcz all componet are already
+  loaded in our app whenever I click on the link it just load the componet
+
+- Server Side Routing - when we click on <a> tag it make network call and the page
+  data comming from the server that is nothing but server side routing.
+
+# Why react know as single page application
+
+- Because this behave like single page. when we navigate to other page it don't refresh
+  the whole page but just load the comoponet according to path by using the client side
+  routing. it also don't make network call for routing from one page to another page.
 
 # Namaste Food Project Outline
 

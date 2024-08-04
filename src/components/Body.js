@@ -1,6 +1,7 @@
 import ResturantCard from "./ResturantCard";
 //import resturantList from "../utils/mockdata";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
@@ -63,7 +64,7 @@ const Body = () => {
                 //console.log(res.info.name);
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
-              //console.log(filteredResturant);
+              console.log(filteredResturant);
               setFilteredRestaurants(filteredResturant);
             }}
           >
@@ -75,10 +76,11 @@ const Body = () => {
             className="filter-btn"
             onClick={() => {
               console.log("Button is clicked");
-              const filteredList = (listOfRestaurants =
-                listOfRestaurants.filter((res) => res.info.avgRating > 4));
-              console.log(listOfRestaurants);
-              setListOfRestaurants(filteredList);
+              const filteredList = listOfRestaurants.filter(
+                (res) => res.info.avgRating > 4
+              );
+              console.log(filteredList);
+              setFilteredRestaurants(filteredList);
             }}
           >
             Top Rated Restaurants
@@ -87,7 +89,9 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurants.map((resturant) => (
-          <ResturantCard key={resturant.info.id} resturantData={resturant} />
+          <Link key={resturant.info.id} to={"/resturants/" + resturant.info.id}>
+            <ResturantCard resturantData={resturant} />
+          </Link>
         ))}
       </div>
     </div>
