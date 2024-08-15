@@ -277,7 +277,7 @@
   called the callback function which we have write inside useEffect() hooks
 - useEffect needs two argument 1. callback function 2. Dependency Array second arg is
   not mandatory.
-- If second argument is not pass then useEffect will be called for every
+- If second argument is not pass then useEffect will be called after every
   rendering of that component where useEffect is written.
 - if second argrument is pass as [] empty depenecy array then useEffect will be called
   only one time during initial render.
@@ -301,7 +301,7 @@
 # Why react is faster
 
 - Because it used Virtual DOM concept
-- It has diff algorithm which is veey efficiently, It can do veri efficient
+- It has diff algorithm which is very efficiently, It can do very efficient
   DOM maniputaion
 - Diff algo find the diff and update the DOM.
 
@@ -347,6 +347,93 @@
 - Because this behave like single page. when we navigate to other page it don't refresh
   the whole page but just load the comoponet according to path by using the client side
   routing. it also don't make network call for routing from one page to another page.
+
+# Class Based Component
+
+- It is an older way of creating component inside react.
+- It is normal javascript class
+- Below line instruct that this class is React Component
+- class UserClass extends React.Component {}
+- extends React.Component makes react to instruct that this class is Component,
+  hence react will start tracking of this class component.
+- Every class based component have render() method which return some piece of JSX which
+  will be displayed on page.
+- Functional component is basically a function which return some piece of JSX while A
+  class based component is a Class which extends React.Component and it has render()
+  method which return some piece of JSX code.
+- There are two import things that must be used related to props in class base
+  1. Always create contructor and inside that call super(props)
+  2. use {this.props.nameOfProps} to access props anywhere inside your class
+- Whenever new instance of class is created the contructor will be called automatically
+- There are many question related to class component are being ask by interrviewer.
+- When you are rendering your functional conponent on page it means you are mounting or
+  or calling or invoking, loading that functional component
+- When I say I am Loading your class based component it means you are creating
+  new instance of that class based component.
+- When new instance of class is called it automatically called the constructor hence
+  contrcutor is the best place to recive props as well as to create state variable.
+
+# Class Based component lifecycle method
+
+- In class based component first constructor is called then render() method is call
+- componentDidMount() - When any class load first constructor is called then render()
+  method is called then componentDidMount() is called. This is nothing but mouting
+  cycle which is also know as lifecycle of react class based component.
+
+- componentDidMount() is called when component alreayd mouted to the DOM or Page.
+- When you have called Child component from Another Parent component the lifecycle
+  method will be called on following order.
+
+  1. Parent Contructor....
+  2. Parent Render()
+  3. Child Constructor...
+  4. Child Render()
+  5. Child componentDidMount()
+  6. Parent componentDidMount()
+
+- When you have one parent and you call child component multiple time from parent
+  than lifecycle method will be call on following order
+
+  1. Parent Contructor....
+  2. Parent Render()
+  3. First Child Constructor...
+  4. First Child Render()
+  5. Second Child Constructor...
+  6. Second Child Render()
+  7. First Child componentDidMount()
+  8. Second Child componentDidMount()
+  9. Parent componentDidMount()
+
+- componentDidMount() will call after the render()
+- componentWillUnmount() will be call when you navigate to other page from
+  the current page component in which you have write componentWillUnmount(). Here we have this methon in child component of About us page so when you navigate to other
+  page like contact us from about us then it will call componentWillUnmount() method
+  of About us page.
+- componentWillUnmount() is call just before the componet came out of the UI
+
+# What should we write in componentWillUnmount() method
+
+- cleanup code
+- it will called when you are leaving the page
+- There are lots of things which should be clear when you leave particular page
+- setInterval() concept
+- When we are navigating page it is not refresh the whole page but only change the
+  component without whole page refresh.
+
+# Imp link to understand component lifecycle
+
+- https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+# Note
+
+- When you are rendering your functional conponent on page it means you are mounting or
+  or calling or invoking, loading that functional component
+
+- When I say I am Loading your class based component it means you are creating
+  new instance of that class based component.
+
+- Mounting means showing component on to the page UI.
+- Unmounting means removing component on from the page UI.
 
 # Namaste Food Project Outline
 

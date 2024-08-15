@@ -83,3 +83,13 @@
 .search-btn {
   margin-left: 10px;
 }
+
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.user-card img {
+  height: 100px;
+  width: 100px;
+}
