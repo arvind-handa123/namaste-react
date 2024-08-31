@@ -1,34 +1,14 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { MENU_URL } from "../utils/constant";
+import useResturantMenu from "../utils/useResturantMenu";
 import Shimmer from "./Shimmer";
 
 const ResturantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
-
   const { resId } = useParams();
+  const resInfo = useResturantMenu(resId);
+
   console.log("dynamic passed resturant id is : " + resId);
 
-  // we have pass empty dependency array hence it will call only once after every time
-  // component is render
-  useEffect(() => {
-    console.log("ResturantMenu component useEffect() is called");
-    fetchMenu();
-  }, []);
-
-  console.log("ResturantMenu component is called");
-
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_URL + resId);
-
-    const jsonData = await data.json();
-    //console.log(jsonData);
-    setResInfo(jsonData.data);
-  };
-
-  if (resInfo === null) {
-    return <Shimmer />;
-  }
+  if (resInfo === null) return <Shimmer />;
 
   const { name, cuisines, costForTwoMessage, cloudinaryImageId, city } =
     resInfo?.cards[2]?.card?.card?.info;

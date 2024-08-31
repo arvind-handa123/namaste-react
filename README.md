@@ -435,6 +435,71 @@
 - Mounting means showing component on to the page UI.
 - Unmounting means removing component on from the page UI.
 
+# Custom Hooks
+
+- Hooks is nothing but normal utility functions. they are like helper function
+- creating custom hooks is not a mandatory things but it is very good things
+  because that will make you code more looks readable, that will make you code
+  more modular, that will make you code more reusable.
+- Best place to put all custom hooks inside util package.
+- It preffered way to create separate file for each custom hooks.
+- custom hooks name should be start with "use <name of hook>"
+- It is not mandatory to use word "use" but it is recomnded to use
+- internally react understand that if functiona name start with small "use" keyword
+  then it is a hook.
+
+# Improved perfomance of the large scale application
+
+- When you build your application for production ready then parcel will combine all
+  or code into single JS file
+- If you make one JS file for thousand of react component than that JS file size
+  will become larger and takes more time during loading
+- So for better permance we should learn about to optimize size of production
+  ready build
+- If you not take care of file size then you will not be able to make product
+  ready enterprise application. if you don't care about this then our application
+  become very slow due to large single file size. Because large files take lot of
+  time to load into browser also
+- We should break down our whole application into smaller indvidual part so instead
+  of generating single large JS file, it can generate multiple small JS file which contains logical related component and its dependent files
+- We will make smaller bundle of this single large JS file, this process is known as
+  chunks and other terminology as below.
+- We should do chunking or code splliting of our application into smaller part
+- Break down our application into smaller logical chunks
+- Terminology to make divide large application into smaller chunk
+- Chunking - We have to chunks our apps into smaller chunk
+- Code Splitting - We have to split our code
+- Dynamic Bundling - We have to do bundling in a dynamic way
+- Lazy Laoding
+- On deemand loading
+
+- How to do smaller bundle
+  - Logical separation of application, A bundle should have a enough code for specific
+    major feature of our application.
+- When to do smaller bundle
+- What should the smaller bundle contains
+
+# lazy loading
+
+- we can use functiona lazy for lazy or on demand loading of our react component
+- lazy() function comes from react library
+- it take callback function and which uses import() function to load react
+  component lazily from the sepecified path inside import function.
+
+- import {lazy, Suspense} from "react";
+
+- const Grocery = lazy(() => import("./components/Grocery"));
+
+- <Suspense fallback={<h1>Loading...</h1>}>
+  <Grocery />
+  </Suspense>
+
+- Above four line has lot of power, It can do magical things for our app
+
+# Suspense Componet
+
+- Lets you display a fallback("Loading...") until its children have finished loading.
+
 # Namaste Food Project Outline
 
 - Header
